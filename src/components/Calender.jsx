@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import { AiOutlineLeft, AiOutlineRight,AiOutlineCalendar, AiOutlineDown,AiOutlineSearch, AiOutlineCustomerService, AiOutlineSetting } from "react-icons/ai";
 import "../styles/Calender.css";
 import { format,
     startOfWeek,
@@ -69,12 +69,14 @@ function Calender() {
             setSelectedDate(cloneDate);
           }}
         >
+            
           {format(currentDate, "d")}
         </div>
       );
       currentDate = addDays(currentDate, 1);
     }
-    return <>{week}</>;
+    return <>
+    {week}</>;
   };
   const getDates = () => {
     const startOfSelectedMonth = startOfMonth(activeDate);
@@ -96,14 +98,27 @@ function Calender() {
     return <div className="weekContainer">{allWeeks}</div>;
   };
   return (
-    <div>Calender
+    <div className='maindiv'>
+        <div className='headericons'>         
+              <AiOutlineDown className="dropdown-icon" />
+                       <AiOutlineCalendar className="calendarIcon" />
+                       <span>Calender</span>
+                       </div>
+                  
          <section>
       {getHeader()}
       {getWeekDaysNames()}
       {getDates()}
+    
     </section>
+    <div className='headericons2'>         
+              <AiOutlineSearch className="search-icon" />
+                       <AiOutlineCustomerService className="serviceIcon" />
+                       <AiOutlineSetting className="settingIcon" />
+                        <button className="monthbutton"> Month <AiOutlineDown className="dropdown-icon" /></button>
+                       </div>
     </div>
   )
 }
 
-export default Calender
+export default Calender;

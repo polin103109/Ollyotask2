@@ -1,26 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
 .weekContainer {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    width:1000px;
+    border: 1px solid rgb(202, 199, 199);
+    color: black;
+   
   }
+  /* .weekContainer > * {
+    border: 1px solid rgb(202, 199, 199);
+    height: 1000px;
+    padding: 20px;
+   
+  } */
+  
 .header {
     display: flex;
     align-items: center;
+    border: 1px solid rgb(202, 199, 199);
+    border-left: 1px solid transparent;
+    border-right: none;
+    border-bottom: none;
+    height: 70px;
+   
   }
-
 .day{
-    margin: 12px;
+  margin: 30px;
   height: 30px;
   width: 30px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
+ 
+  }
+.calendarIcon{
+    margin-left: 10px;
 }
 .weekNames {
     color: #9e9e9e;
     cursor: default;
-  }
+   
+    }
   .inactiveDay {
     color: #a8a7a7;
   }
@@ -53,5 +78,35 @@
   }
   .todayButton:hover {
     background: #efefef;
+  }
+  .headericons{
+    display: flex;
+    gap: 20px;
+    border: 1px solid rgb(202, 199, 199);
+    border-right: 1px solid transparent;
+    height: 71px;
+    width: 200px;
+    align-items: center;
+     
+  }
+  .maindiv{
+    display: flex;
+    gap:0px;
+    
+  }
+  .headericons2{
+    display: flex;
+    gap: 20px;
+    border: 1px solid rgb(202, 199, 199);
+    border-left:  1px solid transparent;
+    height: 71px;
+    width: 200px;
+    align-items: center;
+    margin-top: 0;
+
+  }
+  .monthbutton{
+    width:100px;
+    height: 40px;
   }
   

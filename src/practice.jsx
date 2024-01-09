@@ -43,6 +43,25 @@ const data = [
     
     const sortedUsersAbove20 = forSort(data);
     console.log(sortedUsersAbove20);
+    //callback function
+
+const customMap = (array, callback) => {
+    const newArray = [];
+  
+    for (let i = 0; i < array.length; i++) {
+      const userReturn = callback(array[i], i);
+      newArray.push(userReturn);
+    }
+  
+    return newArray;
+  };
+  
+  const arr = [3, 4, 5, 7];
+  
+  const modifiedArray = customMap(arr, function (item, index) {
+    return item * item;
+  });
+  console.log(modifiedArray);
     
     
     
