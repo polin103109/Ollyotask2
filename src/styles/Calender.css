@@ -25,7 +25,7 @@
   }
   
   .day{
-  height: 45px;
+  height: 65px;
   width: 40px;
   padding-bottom: 50px;
   padding-left: 50px;
@@ -35,7 +35,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-left:1px solid black;
+  border-left:1px solid #cdcdcd;
+  border-bottom:1px solid #cdcdcd;
  }
 .calendarIcon{
     margin-left: 10px;
@@ -50,18 +51,30 @@
   .inactiveDay {
     color: #a8a7a7;
   }
-  .today {
-    background: #3366ff;
-    border-radius: 50%;
-    color: white;
-  }
- 
- 
-  .selectedDay {
+  
+  
+  .currentDateMark{
     color: white;
     background: #3366ff;
     border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    padding: 10px;
+
   }
+ 
+ 
+  /* .selectedDay {
+    color: white;
+    background: #3366ff;
+    border-radius: 50%;
+    height: 5px;
+    width: 5px;
+    padding: 10px;
+    margin-left: 50px;
+    margin-top: 20px;
+
+  } */
   .create{
     width:130px;
     height: 60px;
@@ -69,11 +82,17 @@
    
   }
  
-  .maindiv{
+  /* .maindiv{
     display: flex;
     gap:0px;
     margin-top: 10px;
     margin-left: 10px;
+  } */
+  .main{
+    border: 1px solid #cdcdcd;
+    border-top: none;
+    border-left: none;
+    max-height: 1000vh;
   }
 
   

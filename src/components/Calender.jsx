@@ -59,26 +59,28 @@ function Calender() {
     let currentDate = date;
     const week = [];
     for (let day = 0; day < 7; day++) {
-      const cloneDate = currentDate;
       week.push(
         <div
-          className={`day ${
-            isSameMonth(currentDate, activeDate) ? "" : "inactiveDay"
-          } ${isSameDay(currentDate, selectedDate) ? "selectedDay" : ""}
-          ${isSameDay(currentDate, new Date()) ? "today" : ""}`}
+          key={currentDate.toString()}
+          className={`day ${isSameMonth(currentDate, activeDate) ? "" : "inactiveDay"} 
+          ${isSameDay(currentDate, selectedDate) ? "selectedDay" : ""}`}
           onClick={() => {
-            setSelectedDate(cloneDate);
+            setSelectedDate(currentDate);
           }}
         >
-            
-          {format(currentDate, "d")}
+          {isSameDay(currentDate, new Date()) && (
+            <div className="currentDateMark"> 
+              {format(currentDate, "d")}
+            </div>
+          )}
+          {!isSameDay(currentDate, new Date()) && format(currentDate, "d")}
         </div>
       );
       currentDate = addDays(currentDate, 1);
     }
-    return <>
-    {week}</>;
+    return week;
   };
+
   const getDates = () => {
     const startOfSelectedMonth = startOfMonth(activeDate);
     const endOfSelectedMonth = endOfMonth(activeDate);
