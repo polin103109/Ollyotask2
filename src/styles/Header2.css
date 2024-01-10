@@ -1,0 +1,19 @@
+  .headericons2{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 10px;
+   border-bottom: 1px solid #cdcdcd; 
+   height: 70px;
+   cursor: pointer;
+
+  } 
+  .monthbutton{
+    width:90px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+  }  
