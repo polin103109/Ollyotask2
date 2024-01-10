@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import "../styles/Calender.css";
-import { format,
-    startOfWeek,
+import Modal from './Modal';
+import { format,startOfWeek,
     addDays,
     startOfMonth,
     endOfMonth,
@@ -16,6 +16,16 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 function Calender() {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [activeDate, setActiveDate] = useState(new Date());
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [inputValue, setInputValue] = useState('');
+    const [events, setEvents] = useState({});
+
+    const clickonDate = (currentDate) => {
+        setSelectedDate(currentDate);
+        setIsModalOpen(true);
+        alert(hello)
+
+      }
     const getHeader = () => {
         return (
           <div className="header">
@@ -60,20 +70,18 @@ function Calender() {
     const week = [];
     for (let day = 0; day < 7; day++) {
       week.push(
-        <div
+        <div 
           key={currentDate.toString()}
           className={`day ${isSameMonth(currentDate, activeDate) ? "" : "inactiveDay"} 
           ${isSameDay(currentDate, selectedDate) ? "selectedDay" : ""}`}
-          onClick={() => {
-            setSelectedDate(currentDate);
-          }}
+          onClick={clickonDate}
         >
           {isSameDay(currentDate, new Date()) && (
             <div className="currentDateMark"> 
               {format(currentDate, "d")}
             </div>
           )}
-          {!isSameDay(currentDate, new Date()) && format(currentDate, "d")}
+          {!isSameDay(currentDate, new Date()) && format(currentDate, "d")} 
         </div>
       );
       currentDate = addDays(currentDate, 1);
@@ -99,16 +107,44 @@ function Calender() {
     }
  return <div className="weekContainer">{allWeeks}</div>;
   };
-
+  
+  const handleInputChange = (event) => {
+    event.preventDefault();
+    setInputValue(event.target.value);
+  };
+  const handleSave = () => {
+    const updatedEvents = { ...events };
+    if (!updatedEvents[selectedDate]) {
+      updatedEvents[selectedDate] = [];
+    }
+    updatedEvents[selectedDate].push(inputValue);
+    setIsModalOpen(false);
+    setEvents(updatedEvents);
+    setInputValue(''); 
+  };
+  const getEventsForDate = (date) => {
+    if (events[date]) {
+      return events[date].map((event, index) => (
+        <div key={index} className="event">
+          {event}
+        </div>
+      ));
+    }
+    return null;
+  };
   return (
        <div className='main'>
-        {/* <div>
-            <button className='create'>+ Create <AiOutlineDown className="dropdown-icon" /></button>
-        </div> */}
       <section>
       {getHeader()}
         {getWeekDaysNames()}
         {getDates()}
+        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+            <input className="modalinput"placeholder='Add Title and Time'  value={inputValue}
+            onChange={handleInputChange}></input>
+            <div className='modalbottom'></div>
+             <button className="modalbutton"onClick={handleSave}>Save</button>
+        </Modal>
+        {getEventsForDate(selectedDate)}
         </section>
         </div>
 

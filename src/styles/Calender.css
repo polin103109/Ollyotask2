@@ -51,7 +51,7 @@
   .inactiveDay {
     color: #a8a7a7;
   }
-  
+
   
   .currentDateMark{
     color: white;
@@ -80,6 +80,9 @@
     height: 60px;
     border-radius: 25px;
    
+  }
+  .savebutton{
+    margin: 20px;
   }
  
   /* .maindiv{
