@@ -6,5 +6,11 @@ body{
 .maindiv{
   display: flex;
   flex-direction: row;
-  gap:5px;
 }
+.leftSidebar{
+ 
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+

@@ -1,30 +1,26 @@
-*{
-    margin: 0;
-    padding: 0;
-
-    
+* {
+  margin: 0;
+  padding: 0;
 }
 
 .weekContainer {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    width:1000px; 
-    color: black;
-    grid-column-gap: 0;
-    
-   
-  }
-  
-  .changeMonth {
-    margin: 0px 20px;
-  }
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 1000px;
+  color: black;
+  grid-column-gap: 0;
+}
+
+.changeMonth {
+  margin: 0px 20px;
+}
 
 .currentMonth {
-    margin-left: 24px;
-    font-size: 24px;
-  }
-  
-  .day{
+  margin-left: 24px;
+  font-size: 24px;
+}
+
+.day {
   height: 65px;
   width: 40px;
   padding-bottom: 50px;
@@ -33,38 +29,52 @@
   padding-top: 0px;
   cursor: pointer;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-left:1px solid #cdcdcd;
-  border-bottom:1px solid #cdcdcd;
- }
-.calendarIcon{
-    margin-left: 10px;
+  border-left: 1px solid #cdcdcd;
+  border-bottom: 1px solid #cdcdcd;
+  position: relative;
+ 
+}
+.calendarIcon {
+  margin-left: 10px;
 }
 .weekNames {
-    color: #9e9e9e;
-    cursor: default;
-    padding-top: 10px;
-    padding-bottom: 0px;
-   
-    }
-  .inactiveDay {
-    color: #a8a7a7;
-  }
+  color: #9e9e9e;
+  cursor: default;
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+.inactiveDay {
+  color: #a8a7a7;
+ }
 
-  
-  .currentDateMark{
-    color: white;
-    background: #3366ff;
-    border-radius: 50%;
-    height: 20px;
-    width: 20px;
-    padding: 10px;
+.currentDateMark {
+  color: white;
+  background: #3366ff;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  padding: 10px;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  font-weight: bold;
+}
+.dayNumber {
 
-  }
- 
- 
-  /* .selectedDay {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* .selectedDay {
     color: white;
     background: #3366ff;
     border-radius: 50%;
@@ -75,27 +85,39 @@
     margin-top: 20px;
 
   } */
-  .create{
-    width:130px;
-    height: 60px;
-    border-radius: 25px;
-   
-  }
-  .savebutton{
-    margin: 20px;
-  }
- 
-  /* .maindiv{
+
+.create {
+  width: 130px;
+  height: 60px;
+  border-radius: 25px;
+}
+.savebutton {
+  margin: 20px;
+}
+.selectedDay {
+  display: flex;
+  flex-direction: column;
+}
+
+.eventdivindex {
+  background-color: green;
+  color: white;
+  width:133px;
+  border-radius: 3px;
+  margin-top: 60px;
+  font-family: 'Times New Roman';
+  padding: 6px;
+}
+
+/* .maindiv{
     display: flex;
     gap:0px;
     margin-top: 10px;
     margin-left: 10px;
   } */
-  .main{
-    border: 1px solid #cdcdcd;
-    border-top: none;
-    border-left: none;
-    max-height: 1000vh;
-  }
-
-  
+.main {
+  border: 1px solid #cdcdcd;
+  border-top: none;
+  border-left: none;
+  max-height: 1000vh;
+}
