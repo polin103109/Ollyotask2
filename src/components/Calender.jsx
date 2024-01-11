@@ -22,13 +22,6 @@ function Calender() {
     const [inputTime, setInputTime] = useState('');
     const [inputDate,setInputDate]=useState('');
     const [inputendDate,setInputendDate]=useState('');
-    // const [inputDescription, setInputDescription] = useState('');
-    // const events = [
-    //     { date: '2024-01-15', title: 'Meeting', time: '10:00 AM', description: 'Discuss project' },
-    //     { date: '2024-01-25', title: 'Meeting', time: '11:00 AM', description: 'Discuss project' },
-        
-    //   ];
-  //  console.log(currentDate)
        const clickonDate = (selectedDate) => {
         console.log(selectedDate);
         setSelectedDate(selectedDate);
@@ -61,7 +54,6 @@ function Calender() {
       };
     const getWeekDaysNames = () => {
     const weekStartDate = startOfWeek(activeDate);
-    // console.log(weekStartDate);
     const weekDays = [];
     for (let day = 0; day < 7; day++) {
       weekDays.push(
@@ -70,7 +62,6 @@ function Calender() {
         </div>
       );
     }
-    // console.log(weekDays)
     return <div className="weekContainer">{weekDays}</div>;
     
   };
@@ -99,7 +90,6 @@ function Calender() {
   };
   const generateDatesForCurrentWeek = (date, selectedDate, activeDate) => {
     let currentDate = date;
-    // console.log(currentDate);
     const week = [];
     for (let day = 0; day < 7; day++) {
       week.push(
@@ -153,7 +143,7 @@ function Calender() {
     const startDate = new Date(inputDate);
     const endDate = new Date(inputendDate);
     if (startDate <= endDate) {
-      // Create an array of dates between start date and end date
+      
       const dateRange = [];
       let currentDate = startDate;
       while (currentDate <= endDate) {
@@ -175,22 +165,6 @@ function Calender() {
       setInputDate('');
       setInputendDate('');
     }
-  
- //   console.log(selectedDate)
-  //   const formattedDate = format(selectedDate, "yyyy-MM-dd"); 
-  // //  console.log(formattedDate, selectedDate)
-  //   const newEvent = {
-  //     date: inputDate,
-  //     title: inputTitle,
-  //     time: inputTime,
-  //   };
-  //   // console.log(newEvent)
-  //   updatedEvents.push(newEvent);
-  //   setEvents(updatedEvents);
-  //   setIsModalOpen(false);
-  //   setInputTitle('');
-  //   setInputTime('');
-  //   setInputDate('');
   };
 
   return (
@@ -200,12 +174,14 @@ function Calender() {
         {getWeekDaysNames()}
         {getDates()}
         <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <input
-    className="modalinput"
+    <div>  <input
+    className="modalinput1"
     placeholder="Add Event Title"
     value={inputTitle}
     onChange={(e) => setInputTitle(e.target.value)}
-  />
+  /></div>
+  <div>
+   <span className='startdate'>Start Date</span>
    <input
    type='date'
     className="modalinput"
@@ -213,7 +189,9 @@ function Calender() {
     value={inputDate}
     onChange={(e) => setInputDate(e.target.value)}
   />
-  <span>Start Date</span>
+  </div>
+  <div>
+  <span className='enddate'>End Date</span>
    <input 
    type='date'
     className="modalinput"
@@ -221,13 +199,15 @@ function Calender() {
     value={inputendDate}
     onChange={(e) => setInputendDate(e.target.value)}
   />
-  <span>End Date</span>
+  </div>
+  <div>
   <input
-    className="modalinput"
+    className="modalinput1"
     placeholder="Add Event Time"
     value={inputTime}
     onChange={(e) => setInputTime(e.target.value)}
   />
+  </div>
             <div className='modalbottom'></div>
              <button className="modalbutton"onClick={handleSave}>Save</button>
         </Modal>
